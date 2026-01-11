@@ -1,0 +1,231 @@
+{
+  "person": {
+    "firstName": "Galuh",
+    "lastName": "Adi Insani",
+    "name": "Galuh Adi Insani",
+    "role": "Data Analytics Expert",
+    "avatar": "/images/avatar.jpg",
+    "location": "Asia/Jakarta",
+    "languages": ["English", "Bahasa Indonesia"]
+  },
+  "newsletter": {
+    "display": true,
+    "title": "Subscribe to Galuh's Newsletter",
+    "description": "I occasionally write about design, technology, and share thoughts on the intersection of creativity and engineering."
+  },
+  "social": [
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "link": "https://github.com/adiorany3"
+    },
+    {
+      "name": "LinkedIn",
+      "icon": "linkedin",
+      "link": "https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/"
+    },
+    {
+      "name": "Google Scholar",
+      "icon": "book",
+      "link": "https://scholar.google.com/citations?user=8y2L7xoAAAAJ&hl=id"
+    },
+    {
+      "name": "Email",
+      "icon": "email",
+      "link": "mailto:adioranye@ugm.ac.id"
+    }
+  ],
+  "home": {
+    "label": "Home",
+    "title": "Galuh Adi Insani's Portfolio",
+    "description": "Portfolio website showcasing my work as a Data Analytics Expert",
+    "headline": "Data Analytics Expert",
+    "subline": "I'm Galuh Adi Insani, a data analytics expert with 17+ years of experience. Expert in ETL, data modeling, predictive analytics using Python, SQL, Tableau, and Power BI to uncover hidden patterns and support data-driven business strategies."
+  },
+  "about": {
+    "label": "About",
+    "title": "About me",
+    "description": "Meet Galuh Adi Insani, Data Analytics Expert from Asia/Jakarta",
+    "tableOfContent": {
+      "display": true,
+      "subItems": false
+    },
+    "avatar": {
+      "display": true
+    },
+    "calendar": {
+      "display": true,
+      "link": "https://cal.com"
+    },
+    "intro": {
+      "display": true,
+      "title": "Introduction",
+      "description": "I am Galuh Adi Insani, a data analytics expert with 17+ years of experience. Expert in ETL, data modeling, predictive analytics using Python, SQL, Tableau, and Power BI to uncover hidden patterns and support data-driven business strategies.\n• 📍 Based in Indonesia\n• 💼 Independent Data Consultant\n• ✉️ adioranye@ugm.ac.id"
+    },
+    "work": {
+      "display": true,
+      "title": "Work Experience",
+      "experiences": [
+        {
+          "company": "Universitas Gadjah Mada",
+          "timeframe": "2008 - Present",
+          "role": "Lecturer & Researcher",
+          "achievements": [
+            "Teaching, researching, and serving as an academic editor."
+          ],
+          "images": []
+        },
+        {
+          "company": "Ministry of Education and Culture",
+          "timeframe": "Oct 2023 - Present",
+          "role": "University Reviewer",
+          "achievements": [
+            "Evaluating university entrepreneur program applications."
+          ],
+          "images": []
+        },
+        {
+          "company": "PT Pertamina",
+          "timeframe": "Jan 2024 - Present",
+          "role": "PF Muda Reviewer",
+          "achievements": [
+            "Reviewing sociopreneur proposals."
+          ],
+          "images": []
+        },
+        {
+          "company": "PLOS",
+          "timeframe": "Jan 2023 - Present",
+          "role": "Journal Reviewer",
+          "achievements": [
+            "Academic reviewer for international journals."
+          ],
+          "images": []
+        }
+      ]
+    },
+    "studies": {
+      "display": true,
+      "title": "Education",
+      "institutions": [
+        {
+          "name": "Universitas Gadjah Mada",
+          "description": "Lecturer and Researcher in Data Analytics."
+        }
+      ]
+    },
+    "technical": {
+      "display": true,
+      "title": "Technical Skills",
+      "skills": [
+        {
+          "title": "Data Analysis",
+          "description": "Expert in ETL, data modeling, and predictive analytics."
+        },
+        {
+          "title": "Python (Pandas, NumPy)",
+          "description": "Specialist in big data processing and end-to-end solutions."
+        },
+        {
+          "title": "Data Visualization (Matplotlib, Seaborn)",
+          "description": "Creating interactive dashboards and visualizations."
+        },
+        {
+          "title": "Machine Learning (scikit-learn)",
+          "description": "Building models for predictive analytics."
+        },
+        {
+          "title": "SQL, Tableau, Power BI",
+          "description": "Tools for data querying and business intelligence."
+        }
+      ]
+    }
+  },
+  "blog": {
+    "label": "Blog",
+    "title": "News about Data Analytics",
+    "description": "Find the latest news and articles about Galuh Adi Insani in the world of data analytics and academia"
+  },
+  "work": {
+    "label": "Work",
+    "title": "My projects",
+    "description": "Design and dev projects by Galuh Adi Insani"
+  },
+  "gallery": {
+    "label": "Gallery",
+    "title": "My photo gallery",
+    "description": "A photo collection by Galuh Adi Insani",
+    "images": [
+      {
+        "src": "/images/gallery/img-01.jpg",
+        "alt": "image",
+        "orientation": "vertical"
+      },
+      {
+        "src": "/images/gallery/img-02.jpg",
+        "alt": "image",
+        "orientation": "horizontal"
+      },
+      {
+        "src": "/images/gallery/img-03.jpg",
+        "alt": "image",
+        "orientation": "vertical"
+      },
+      {
+        "src": "/images/gallery/img-04.jpg",
+        "alt": "image",
+        "orientation": "horizontal"
+      },
+      {
+        "src": "/images/gallery/img-05.jpg",
+        "alt": "image",
+        "orientation": "horizontal"
+      },
+      {
+        "src": "/images/gallery/img-06.jpg",
+        "alt": "image",
+        "orientation": "vertical"
+      },
+      {
+        "src": "/images/gallery/img-07.jpg",
+        "alt": "image",
+        "orientation": "horizontal"
+      },
+      {
+        "src": "/images/gallery/img-08.jpg",
+        "alt": "image",
+        "orientation": "vertical"
+      },
+      {
+        "src": "/images/gallery/img-09.jpg",
+        "alt": "image",
+        "orientation": "horizontal"
+      },
+      {
+        "src": "/images/gallery/img-10.jpg",
+        "alt": "image",
+        "orientation": "horizontal"
+      },
+      {
+        "src": "/images/gallery/img-11.jpg",
+        "alt": "image",
+        "orientation": "vertical"
+      },
+      {
+        "src": "/images/gallery/img-12.jpg",
+        "alt": "image",
+        "orientation": "horizontal"
+      },
+      {
+        "src": "/images/gallery/img-13.jpg",
+        "alt": "image",
+        "orientation": "horizontal"
+      },
+      {
+        "src": "/images/gallery/img-14.jpg",
+        "alt": "image",
+        "orientation": "horizontal"
+      }
+    ]
+  }
+}

@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
@@ -44,6 +45,20 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const router = useRouter();
+  const [locale, setLocale] = useState('id');
+
+  useEffect(() => {
+    const cookie = document.cookie.split(';').find(c => c.trim().startsWith('locale='));
+    if (cookie) setLocale(cookie.split('=')[1]);
+  }, []);
+
+  const switchLocale = () => {
+    const newLocale = locale === 'id' ? 'en' : 'id';
+    document.cookie = `locale=${newLocale}; path=/`;
+    setLocale(newLocale);
+    router.refresh();
+  };
 
   return (
     <>
@@ -155,6 +170,9 @@ export const Header = () => {
             gap="20"
           >
             <Flex hide="s">{display.time && <TimeDisplay timeZone={person.location} />}</Flex>
+            <button onClick={switchLocale} style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer' }}>
+              {locale === 'id' ? 'EN' : 'ID'}
+            </button>
           </Flex>
         </Flex>
       </Flex>

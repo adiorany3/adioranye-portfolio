@@ -4,13 +4,18 @@ import { Heading, Flex, Text, Button, Avatar, RevealFx, Arrow, Column } from "@/
 import { Projects } from "@/components/work/Projects";
 
 import { baseURL, routes } from "@/app/resources";
-import { home, about, person, newsletter } from "@/app/resources/content";
+import { getContent } from "@/app/resources/content";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
+import { headers } from "next/headers";
 
 export async function generateMetadata() {
-  const title = home.title;
-  const description = home.description;
+  const headersList = headers();
+  const cookie = headersList.get('cookie') || '';
+  const locale = cookie.split(';').find(c => c.trim().startsWith('locale='))?.split('=')[1] || 'id';
+  const content = getContent(locale);
+  const title = content.home.title;
+  const description = content.home.description;
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
   return {
@@ -37,7 +42,12 @@ export async function generateMetadata() {
   };
 }
 
-export default function Home() {
+export default async function Home() {
+  const headersList = headers();
+  const cookie = headersList.get('cookie') || '';
+  const locale = cookie.split(';').find(c => c.trim().startsWith('locale='))?.split('=')[1] || 'id';
+  const content = getContent(locale);
+
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
       <script
@@ -47,16 +57,16 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: home.title,
-            description: home.description,
+            name: content.home.title,
+            description: content.home.description,
             url: `https://${baseURL}`,
-            image: `${baseURL}/og?title=${encodeURIComponent(home.title)}`,
+            image: `${baseURL}/og?title=${encodeURIComponent(content.home.title)}`,
             publisher: {
               "@type": "Person",
-              name: person.name,
+              name: content.person.name,
               image: {
                 "@type": "ImageObject",
-                url: `${baseURL}${person.avatar}`,
+                url: `${baseURL}${content.person.avatar}`,
               },
             },
           }),
@@ -66,12 +76,12 @@ export default function Home() {
         <Column maxWidth="s">
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="m">
             <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
+              {content.home.headline}
             </Heading>
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="m">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
+              {content.home.subline}
             </Text>
           </RevealFx>
           <RevealFx translateY="12" delay={0.4} horizontal="start">
@@ -84,14 +94,14 @@ export default function Home() {
               arrowIcon
             >
               <Flex gap="8" vertical="center">
-                {about.avatar.display && (
+                {content.about.avatar.display && (
                   <Avatar
                     style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                    src={person.avatar}
+                    src={content.person.avatar}
                     size="m"
                   />
                 )}
-                {about.title}
+                {content.about.title}
               </Flex>
             </Button>
           </RevealFx>
@@ -113,7 +123,7 @@ export default function Home() {
         </Flex>
       )}
       <Projects range={[2]} />
-      {newsletter.display && <Mailchimp newsletter={newsletter} />}
+      {content.newsletter.display && <Mailchimp newsletter={content.newsletter} />}
     </Column>
   );
 }

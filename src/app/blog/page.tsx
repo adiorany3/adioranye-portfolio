@@ -1,8 +1,10 @@
-import { Column, Flex, Heading } from "@/once-ui/components";
+import { Column, Flex, Heading, Text, Button, Card } from "@/once-ui/components";
 import { Mailchimp } from "@/components";
-import { Posts } from "@/components/blog/Posts";
 import { baseURL } from "@/app/resources";
 import { blog, person, newsletter } from "@/app/resources/content";
+import Parser from 'rss-parser';
+
+export const revalidate = 3600; // ISR setiap jam
 
 export async function generateMetadata() {
   const title = blog.title;
@@ -33,7 +35,20 @@ export async function generateMetadata() {
   };
 }
 
-export default function Blog() {
+async function getNews() {
+  const parser = new Parser();
+  try {
+    const feed = await parser.parseURL('https://news.google.com/rss?hl=id&q=data+analytics');
+    return feed.items.slice(0, 10);
+  } catch (error) {
+    console.error('Error fetching news:', error);
+    return [];
+  }
+}
+
+export default async function Blog() {
+  const news = await getNews();
+
   return (
     <Column maxWidth="s">
       <script
@@ -61,9 +76,31 @@ export default function Blog() {
       <Heading marginBottom="l" variant="display-strong-s">
         {blog.title}
       </Heading>
-      <Column fillWidth flex={1}>
-        <Posts range={[1, 3]} thumbnail />
-        <Posts range={[4]} columns="2" />
+      <Column fillWidth flex={1} gap="l">
+        {news.map((item, index) => (
+          <Card key={index} padding="m" background="neutral-weak">
+            <Flex direction="column" gap="s">
+              <Heading as="h3" variant="heading-strong-m">
+                {item.title}
+              </Heading>
+              <Text variant="body-default-s" color="neutral-weak">
+                {item.pubDate ? new Date(item.pubDate).toLocaleDateString('id-ID') : 'Tanggal tidak tersedia'}
+              </Text>
+              <Text variant="body-default-m">
+                {item.contentSnippet || item.summary || 'Deskripsi tidak tersedia'}
+              </Text>
+              <Button
+                href={item.link}
+                variant="secondary"
+                size="s"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Baca Selengkapnya
+              </Button>
+            </Flex>
+          </Card>
+        ))}
       </Column>
       {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>

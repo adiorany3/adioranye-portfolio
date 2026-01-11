@@ -8,6 +8,10 @@ const withMDX = mdx({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
+  i18n: {
+    locales: ['en', 'id'],
+    defaultLocale: 'id',
+  },
 };
 
 export default withMDX(nextConfig);
